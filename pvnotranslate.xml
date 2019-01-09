@@ -10,6 +10,6 @@
     <version>0.1</version>
     <description>Wraps specified strings with a notranslate span.</description>
     <files>
-        <filename plugin="pvpdf">pvnotranslate.php</filename>
+        <filename plugin="pfnotranslate">pvnotranslate.php</filename>
     </files>
 </install>
