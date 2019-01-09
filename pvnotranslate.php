@@ -191,46 +191,11 @@ class plgContentPvnotranslate extends JPlugin
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $temp = explode('|', trim(trim($regs[0][0], '[]'), '[]'));
             dd($temp, $search, $regs);
-            $file_path = $temp[1];
+            $string = $temp[1];
 
             // Let's make sure it's not a remote file
-            if (in_array($file_array[0], array('http','https','ftp','file'))) {
-                $text = JString::str_ireplace($regs[0][0], "<div class=\"info\">This is a link to a remote file.  Please download the PDF to view it: <a href=\"$file_path\" target=\"_blank\">Download PDF</a></div>", $text);
-                return true;                
-            }
-
-            $full_file_path = JPATH_ROOT . "/". $file_path;
-
-            // Let's make sure this non-remote file exists
-            if (JFile::exists($full_file_path) && $file_path && $content = $this->getHTMLContent($file_path)) {
-                // it exists. let's make and insert a display
-                $text = JString::str_ireplace($regs[0][0], $content, $text);
-            } else {
-                // It doesn't exist. let's return an error display
-                $text = JString::str_ireplace($regs[0][0], "<div class=\"error\">This file doesn't exist. Nothing to see here.</div>", $text);
-            }
+            $text = JString::str_ireplace($regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
         }
         return true;
-    }
-
-    /**
-     * Get HTML content,
-     *
-     * @param   $file_Path
-     * @return  string
-     */
-    public function getHTMLContent($file_path)
-    {
-        return 
-<<<EOT
-<style>
-.pdfobject{border: none; width:100%; height:900px;}
-@media (max-width: 600px) {.pdfobject {height:600px;}}
-</style>
-<object class="pdfobject" data="/$file_path" type="application/pdf">
-<iframe class="pdfobject" src="/$file_path">
-This browser does not support PDFs. Please download the PDF to view it: <a href="/$file_path">Download PDF</a>
-</iframe></object>
-EOT;
     }
 }
