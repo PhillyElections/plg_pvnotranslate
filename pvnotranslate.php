@@ -185,7 +185,7 @@ class plgContentPvnotranslate extends JPlugin
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
             return true;
         }
-
+         jimport("kint.kint");
         $search = "(\[\[PVNOTRANSLATE|.*\]\])";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
