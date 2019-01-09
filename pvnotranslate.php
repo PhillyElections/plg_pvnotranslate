@@ -185,12 +185,12 @@ class plgContentPvnotranslate extends JPlugin
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
             return true;
         }
-         jimport("kint.kint");
+//         jimport("kint.kint");
         $search = "(\[\[PVNOTRANSLATE|.*\]\])";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $temp = explode('|', trim(trim($regs[0][0], '[]'), '[]'));
-            dd($temp, $search, $regs);
+ //           dd($temp, $search, $regs);
             $string = $temp[1];
 
             // Let's make sure it's not a remote file
