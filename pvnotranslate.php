@@ -5,8 +5,21 @@
  * @subpackage  Content
  * @copyright   Copyright (C) 2015 Philadelphia Elections Commission
  * @license     GNU/GPL, see LICENSE.php
- * @author      Matthew Murphy <matthew.e.murphy@phila.gov>/
+ * @author      Matthew Murphy <matthew.e.murphy@phila.gov>
+ * */
 
+// Check to ensure this file is included in Joomla!
+defined('_JEXEC') or die('Restricted access');
+
+/**
+ * Example Content Plugin
+ *
+ * @package     Joomla
+ * @subpackage  Content
+ * @since       1.5
+ */
+class plgContentPvnotranslate extends JPlugin
+{
     /**
      * Constructor
      *
