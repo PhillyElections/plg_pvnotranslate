@@ -45,7 +45,7 @@ class plgContentPvnotranslate extends JPlugin
     {
         global $mainframe;
         if (is_object($article)) {
-            $this->getPvnotranslateDisplay($article->title);
+            $this->getPvnotranslateStrings($article->title);
             return $this->getPvnotranslateDisplay($article->text);
         }
         return $this->getPvnotranslateDisplay($article);
