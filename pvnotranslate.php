@@ -46,10 +46,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onPrepareContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onAfterContentSave', $article, $params, $limitstart);
-
         if (is_object($article)) {
+            $article->title=$this->getPvnotranslateDisplay($article->title);
             return $this->getPvnotranslateDisplay($article->text);
         }
         return $this->getPvnotranslateDisplay($article);
@@ -68,8 +66,6 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterDisplayTitle(&$article, &$params, $limitstart)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onAfterDisplayTitle', $article, $params, $limitstart);
         return '';
     }
 
@@ -86,9 +82,6 @@ class plgContentPvnotranslate extends JPlugin
     public function onBeforeDisplayContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onBeforeDisplayContent', $article, $params, $limitstart);
-
         return '';
     }
 
@@ -105,9 +98,6 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterDisplayContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onAfterDisplayContent', $article, $params, $limitstart);
-
         return '';
     }
 
@@ -126,9 +116,6 @@ class plgContentPvnotranslate extends JPlugin
     public function onBeforeContentSave(&$article, $isNew)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onBeforeContentSave', $article, $isNew);
-
         return true;
     }
 
@@ -145,8 +132,6 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterContentSave(&$article, $isNew)
     {
         global $mainframe;
-         jimport("kint.kint");
-         d('onAfterContentSave', $article, $isNew);
         return true;
     }
 
@@ -197,12 +182,12 @@ class plgContentPvnotranslate extends JPlugin
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
             return true;
         }
-         jimport("kint.kint");
+//        jimport("kint.kint");
         $search = "(\[\[PVNOTRANSLATE|.*\]\])";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $temp = explode('|', trim(trim($regs[0][0], '[]'), '[]'));
-            dd($temp, $search, $regs, $this);
+//            dd($temp, $search, $regs, $this);
             $string = $temp[1];
 
             // Let's make sure it's not a remote file
