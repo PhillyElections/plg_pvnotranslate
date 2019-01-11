@@ -30,6 +30,8 @@ class plgContentPvnotranslate extends JPlugin
     public function __construct(&$subject, $params)
     {
         parent::__construct($subject, $params);
+         jimport("kint.kint");
+         d('__construct', $subject, $params);
     }
 
     /**
