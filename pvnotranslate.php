@@ -44,6 +44,9 @@ class plgContentPvnotranslate extends JPlugin
     public function onPrepareContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
+         jimport("kint.kint");
+         d('onAfterContentSave', $article, $params, $limitstart);
+
         if (is_object($article)) {
             return $this->getPvnotranslateDisplay($article->text);
         }
@@ -63,7 +66,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterDisplayTitle(&$article, &$params, $limitstart)
     {
         global $mainframe;
-
+         jimport("kint.kint");
+         d('onAfterDisplayTitle', $article, $params, $limitstart);
         return '';
     }
 
@@ -80,6 +84,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onBeforeDisplayContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
+         jimport("kint.kint");
+         d('onBeforeDisplayContent', $article, $params, $limitstart);
 
         return '';
     }
@@ -97,6 +103,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterDisplayContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
+         jimport("kint.kint");
+         d('onAfterDisplayContent', $article, $params, $limitstart);
 
         return '';
     }
@@ -116,6 +124,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onBeforeContentSave(&$article, $isNew)
     {
         global $mainframe;
+         jimport("kint.kint");
+         d('onBeforeContentSave', $article, $isNew);
 
         return true;
     }
@@ -133,7 +143,8 @@ class plgContentPvnotranslate extends JPlugin
     public function onAfterContentSave(&$article, $isNew)
     {
         global $mainframe;
-
+         jimport("kint.kint");
+         d('onAfterContentSave', $article, $isNew);
         return true;
     }
 
