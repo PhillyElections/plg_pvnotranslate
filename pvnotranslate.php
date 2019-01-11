@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * @version     $Id: pvnotranslate.php
  * @package     PVotes
