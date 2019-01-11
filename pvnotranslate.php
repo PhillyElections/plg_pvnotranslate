@@ -189,7 +189,7 @@ class plgContentPvnotranslate extends JPlugin
             $string = $temp[1];
 
             // Let's make sure it's not a remote file
-            $text = JString::str_ireplace($regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
+            $text = JString::str_ireplace($regs, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
         }
         return true;
     }
