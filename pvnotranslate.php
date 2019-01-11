@@ -145,7 +145,7 @@ class plgContentPvnotranslate extends JPlugin
     {
         // Quick, cheap chance to back out.
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
-            return true;
+            //return true;
         }
 
         $text = explode('<script', $text);
@@ -178,10 +178,10 @@ class plgContentPvnotranslate extends JPlugin
     {
         // Quick, cheap chance to back out.
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
-            return true;
+            //return true;
         }
         jimport("kint.kint");
-        $search = "(\[\[PVNOTRANSLATE|.*\]\])";
+        $search = "(Al Schmidt|Lisa Deeley|Anthony Clarke|Deeley|Schmidt|Clarke)";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $temp = explode('|', trim(trim($regs[0][0], '[]'), '[]'));
