@@ -184,7 +184,7 @@ class plgContentPvnotranslate extends JPlugin
         $search = "(Al Schmidt|Lisa Deeley|Anthony Clarke|Deeley|Schmidt|Clarke)";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
-            $temp = explode('|', trim(trim($regs[0][0], '[]'), '[]'));
+            $temp = $regs[0][0];
             //dd($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
             $string = $temp[1];
 
