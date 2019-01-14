@@ -181,10 +181,10 @@ class plgContentPvnotranslate extends JPlugin
             //return true;
         }
         jimport("kint.kint");
-        $search = "(Al Schmidt|Lisa Deeley|Anthony Clarke|Deeley|Schmidt|Clarke)";
+        $search = "(_Al Schmidt_|_Lisa Deeley_|_Anthony Clarke_|_Deeley_|_Schmidt_|_Clarke_)";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
-            $string = $regs[0][0];
+            $string = JString::str_ireplace("_","",$regs[0][0]);
 //            d($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
             //$string = $temp[1];
 
