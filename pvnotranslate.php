@@ -181,7 +181,7 @@ class plgContentPvnotranslate extends JPlugin
             //return true;
         }
         jimport("kint.kint");
-        $search = "(_+Al Schmidt_+|_+Lisa Deeley_+|_+Anthony Clarke_+|_+Deeley_+|_+Schmidt_+|_+Clarke_+)";
+        $search = "(_\+Al Schmidt_\+|_\+Lisa Deeley_\+|_\+Anthony Clarke_\+|_\+Deeley_\+|_\+Schmidt_\+|_\+Clarke_\+)";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $string = JString::str_ireplace("_+","",$regs[0][0]);
