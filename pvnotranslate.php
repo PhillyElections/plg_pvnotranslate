@@ -185,7 +185,7 @@ class plgContentPvnotranslate extends JPlugin
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $string = JString::str_ireplace("_-","",$regs[0][0]);
-            d($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
+            d($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</span>", $text);
             //$string = $temp[1];
 
             // Let's make sure it's not a remote file
