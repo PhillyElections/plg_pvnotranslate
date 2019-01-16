@@ -45,7 +45,7 @@ class plgContentPvnotranslate extends JPlugin
     {
         global $mainframe;
         if (is_object($article)) {
-//            $this->getPvnotranslateDisplay($article->title);
+            $this->getPvnotranslateDisplay($article->title);
             return $this->getPvnotranslateDisplay($article->text);
         }
         return $this->getPvnotranslateDisplay($article);
@@ -185,12 +185,12 @@ class plgContentPvnotranslate extends JPlugin
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
             $string = JString::str_ireplace("_-","",$regs[0][0]);
-//            d($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
+            d($regs, $search, $regs[0][0], "<span class=\"notranslate\">$string</div>", $text);
             //$string = $temp[1];
 
             // Let's make sure it's not a remote file
             $text = JString::str_ireplace($regs[0][0], "<span class=\"notranslate\">".$string."</span>", $text);
-//            dd($text);
+            dd($text);
         }
         return true;
     }
