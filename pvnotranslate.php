@@ -45,7 +45,7 @@ class plgContentPvnotranslate extends JPlugin
     public function onPrepareContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
-        d($article);
+        d($article, $mainframe);
         if (is_object($article)) {
             $this->getPvnotranslateDisplay($article->title);
             return $this->getPvnotranslateDisplay($article->text);
