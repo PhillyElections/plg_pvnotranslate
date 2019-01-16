@@ -29,6 +29,7 @@ class plgContentPvnotranslate extends JPlugin
      */
     public function __construct(&$subject, $params)
     {
+        jimport("kint.kint");
         parent::__construct($subject, $params);
     }
 
@@ -44,6 +45,7 @@ class plgContentPvnotranslate extends JPlugin
     public function onPrepareContent(&$article, &$params, $limitstart)
     {
         global $mainframe;
+        d($article);
         if (is_object($article)) {
             $this->getPvnotranslateDisplay($article->title);
             return $this->getPvnotranslateDisplay($article->text);
@@ -180,7 +182,6 @@ class plgContentPvnotranslate extends JPlugin
         if (JString::strpos($text, 'PVNOTRANSLATE') === false) {
             //return true;
         }
-        jimport("kint.kint");
         $search = "(_-Al Schmidt_-|_-Lisa Deeley_-|_-Anthony Clarke_-|_-Deeley_-|_-Schmidt_-|_-Clarke_-)";
 
         while (preg_match($search, $text, $regs, PREG_OFFSET_CAPTURE)) {
